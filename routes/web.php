@@ -40,4 +40,10 @@ Route::put('passwords/update', [UserController::class, 'update'])->name('passwor
 Route::get('paquetes',[GerenteController::class,'viewNuevoPaquete'])->name('paquetes.viewNuevoPaquete');
 Route::post('paquetes-create',[GerenteController::class,'nuevoPaquete'])->name('paquetes.nuevoPaquete');
 Route::get('eventos-informacion/{id_evento}',[GerenteController::class,'infoEvento'])->name('eventos.infoEvento');
+Route::put('eventos/actualizar/{evento}',[GerenteController::class,'updateEvento'])->name('evento.updateEvento');
+Route::get('eventos/gastos/{id_evento}',[GerenteController::class,'gastosEvento'])->name('eventos.gastoEvento');
+Route::post('regitros/gastos{id_evento}',[GerenteController::class,'registroGasto'])->name('registros.registroGasto');
+Route::get('view-eventos',[GerenteController::class,'ListarEventos'])->name('view-eventos.ListarEventos');
+Route::get('eventos/{id}',[EventoController::class, 'mostrarEventos'])->name('Eventos.mostrarEventos');
+Route::put('images/{imagen}/{evento}',[ImageController::class, 'update'])->name('images.update');
 
