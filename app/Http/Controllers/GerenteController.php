@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Mail;
 
 class GerenteController extends Controller
 {
-    
+  hola  
 }
