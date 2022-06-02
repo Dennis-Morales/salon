@@ -47,3 +47,14 @@ Route::get('view-eventos',[GerenteController::class,'ListarEventos'])->name('vie
 Route::get('eventos/{id}',[EventoController::class, 'mostrarEventos'])->name('Eventos.mostrarEventos');
 Route::put('images/{imagen}/{evento}',[ImageController::class, 'update'])->name('images.update');
 
+
+//CRUD AJAX
+Route::get('eventos-index', [AjaxController::class, 'index'])->name('eventos.index');
+Route::put('eventos-update', [AjaxController::class, 'update'])->name('eventos.update');
+Route::post('eventos-edit', [AjaxController::class, 'edit'])->name('eventos.edit');
+Route::post('eventos-delete', [AjaxController::class, 'destroy'])->name('eventos.destroy');
+Route::post('eventos-foto', [AjaxController::class, 'foto'])->name('eventos.foto');
+Route::post('eventos-delete-img', [AjaxController::class, 'deleteImg'])->name('eventos.deleteImg');
+Route::put('eventos-update-img', [AjaxController::class, 'updateImg'])->name('eventos.updateImg');
+Route::post('eventos-view-abono', [AjaxController::class, 'viewAbono'])->name('eventos.viewAbono');
+Route::post('eventos-abono', [AjaxController::class, 'abono'])->name('eventos.abono');
