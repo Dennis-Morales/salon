@@ -46,7 +46,12 @@ Route::post('regitros/gastos{id_evento}',[GerenteController::class,'registroGast
 Route::get('view-eventos',[GerenteController::class,'ListarEventos'])->name('view-eventos.ListarEventos');
 Route::get('eventos/{id}',[EventoController::class, 'mostrarEventos'])->name('Eventos.mostrarEventos');
 Route::put('images/{imagen}/{evento}',[ImageController::class, 'update'])->name('images.update');
-
+Route::delete('images/{imagen}/{evento}',[ImageController::class, 'delete'])->name('images.delete');
+Route::put('eventos/confirmar/{id}',[GerenteController::class, 'confirmar'])->name('evento.confirmar');
+Route::put('eventos/no-confirmar/{id}',[GerenteController::class, 'noConfirmar'])->name('evento.noConfirmar');
+Route::get('users/empleado', [UserController::class, 'empleado'])->name('users.empleado');
+Route::get('empleados/view-foto/{evento}', [EmpleadoController::class, 'viewFoto'])->name('empleados.viewFoto');
+Route::post('fotos/add/{evento}', [EmpleadoController::class, 'add'])->name('fotos.add');
 
 //CRUD AJAX
 Route::get('eventos-index', [AjaxController::class, 'index'])->name('eventos.index');
