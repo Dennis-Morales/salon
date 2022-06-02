@@ -57,4 +57,27 @@ class EmpleadoController extends Controller
             // 'consut' => $res
             
         ]);
+        
+        public function viewFoto(Evento $evento){
+        return view('Empleado.view-foto', compact('evento'));
+    }
+
+    public function add(Request $request, Evento $evento){
+        $request->validate([
+            'imagen.*'=>'required|image'
+        ]);
+
+        foreach($request->file('imagen') as $file){
+            $user = Auth::id();
+            $nombre = $file->getClientOriginalName();
+            $file->storeAs('public/imagenes',$nombre);
+            $imagenes = new Image();
+            $imagenes->evento_id = $evento->id;
+            $imagenes->user_id = $user;
+            $imagenes->url = '/storage/imagenes/'.$nombre;
+            $imagenes->save();
+        }
+
+        return redirect()->route('users.empleado');
+    }
 }
