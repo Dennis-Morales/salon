@@ -21,3 +21,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', [LoginController::class, 'create'])->name('logins.create');
+Route::post('logins', [LoginController::class, 'store'])->name('logins.store');
+Route::get('registers', [RegistroUsuarioController::class, 'create'])->name('registers.create');
+Route::post('registers', [RegistroUsuarioController::class, 'store'])->name('registers.store');
+Route::get('users/cliente', [UserController::class, 'cliente'])->name('users.cliente');
+Route::get('users', [UserController::class, 'create'])->name('users.create');
