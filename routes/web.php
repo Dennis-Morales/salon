@@ -34,3 +34,10 @@ Route::post('eventos-create/{paquetes}', [EventoController::class, 'create'])->n
 Route::get('users/gerente', [UserController::class, 'gerente'])->name('users.gerente');
 Route::get('registers/view', [RegistroUsuarioController::class, 'view'])->name('registers.view');
 Route::get('paquetes-create', [PaqueteController::class, 'create'])->name('paquetes.create');
+Route::post('gerente/registers', [RegistroUsuarioController::class, 'registrar'])->name('gerente.registrar');
+Route::get('passwords/view-update/{usuario}', [UserController::class, 'viewUpdate'])->name('passwords.viewUpdate');
+Route::put('passwords/update', [UserController::class, 'update'])->name('passwords.update');
+Route::get('paquetes',[GerenteController::class,'viewNuevoPaquete'])->name('paquetes.viewNuevoPaquete');
+Route::post('paquetes-create',[GerenteController::class,'nuevoPaquete'])->name('paquetes.nuevoPaquete');
+Route::get('eventos-informacion/{id_evento}',[GerenteController::class,'infoEvento'])->name('eventos.infoEvento');
+
